@@ -2,7 +2,7 @@
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "cyan" {}
         _TexTintColor("Texture Tint Color", Color) = (1,1,1,1)
         _PlaneColor("Plane Color", Color) = (1,1,1,1)
     }
