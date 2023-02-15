@@ -41,6 +41,14 @@ public class PlaceFloorOnPlane : MonoBehaviour
             {
                 floorPlaced.AddComponent<ARAnchor>();
             }
+            //Disable plane detection after floor is placed
+            arPlaneManager.enabled = !arPlaneManager.enabled;
+            //Disable plane visuals
+            foreach (var plane in arPlaneManager.trackables)
+            {
+                plane.gameObject.SetActive(false);
+            }
+
         }
     }
 
