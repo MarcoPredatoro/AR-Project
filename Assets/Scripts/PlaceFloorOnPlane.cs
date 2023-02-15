@@ -35,6 +35,12 @@ public class PlaceFloorOnPlane : MonoBehaviour
             //Trying to place plane at world origin - then I should spawn at (-2,-2)
             Vector3 pos = new Vector3((float)0.0,arPlane.transform.position.y,(float)0.0);
             floorPlaced = Instantiate(floorPrefab, pos, Quaternion.identity);
+
+            // Add an ARAnchor component if it doesn't have one already - should stop it moving
+            if (floorPlaced.GetComponent<ARAnchor>() == null)
+            {
+                floorPlaced.AddComponent<ARAnchor>();
+            }
         }
     }
 
