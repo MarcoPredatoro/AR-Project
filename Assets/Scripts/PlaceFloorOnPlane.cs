@@ -5,7 +5,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 
 
-[RequireComponent(typeof(ARPlaneManager))]
+//[RequireComponent(typeof(ARPlaneManager))]
 public class PlaceFloorOnPlane : MonoBehaviour
 {
     [SerializeField] 
@@ -25,7 +25,7 @@ public class PlaceFloorOnPlane : MonoBehaviour
     void Awake()
     {
         dismissButton.onClick.AddListener(Dismiss);
-        arPlaneManager = GetComponent<ARPlaneManager>();
+        //arPlaneManager = GetComponent<ARPlaneManager>();
         arPlaneManager.planesChanged += OnPlanesChanged;
     }
     private void OnPlanesChanged(ARPlanesChangedEventArgs args)
