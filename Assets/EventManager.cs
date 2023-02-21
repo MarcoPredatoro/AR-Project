@@ -11,14 +11,15 @@ public class EventManager : MonoBehaviourPun
 {
     private const byte RFID_POINTS_EVENT = 1;
     private const byte MARCO_STAB_EVENT = 2;
+    private const byte RESET_POINTS_EVENT = 3;
 
-    public int points = 0;
+    public int points;
     public Text pointsText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -49,6 +50,11 @@ public class EventManager : MonoBehaviourPun
             //int value = (int)data[0];
             updatePoints(-value);
             Handheld.Vibrate();
+        }
+        else if (photonEvent.Code == RESET_POINTS_EVENT)
+        {
+            points = 0;
+            pointsText.text = points.ToString();
         }
     }
 
