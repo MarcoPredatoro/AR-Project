@@ -49,7 +49,7 @@ public class EventManager : MonoBehaviourPun
             int value = (int)photonEvent.CustomData;
             //int value = (int)data[0];
             updatePoints(-value);
-            Handheld.Vibrate();
+            //Handheld.Vibrate();            
         }
         else if (photonEvent.Code == RESET_POINTS_EVENT)
         {
