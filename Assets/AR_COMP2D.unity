@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8454d000ac4345af8aa4b4662144eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Marco: {fileID: 5500103233447702160, guid: 002cebaf184d24109837ab4a62aef9ff, type: 3}
+  Marco: {fileID: 2032058131}
 --- !u!1 &283686878
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 8716961106579772057, guid: 002cebaf184d24109837ab4a62aef9ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.66
       objectReference: {fileID: 0}
     - target: {fileID: 8716961106579772057, guid: 002cebaf184d24109837ab4a62aef9ff,
         type: 3}
