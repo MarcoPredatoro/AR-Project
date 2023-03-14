@@ -5,23 +5,26 @@ using Photon.Pun;
 using System.IO;
 using Photon.Realtime;
 
-//Attach to Marco prefab
+//Attach to Marco prefab -> Head
 public class CompassBehaviour : MonoBehaviour
 {   
 
     private Texture2D arrow;
     Camera arCamera;
-    GameObject Marco;
-    PhotonView MarcoView;
     private float angle = 0f;
     
     void Start() {
+        /*UNITY EDITOR*/
         //Create a new texture for the arrow
-        arrow = new Texture2D(1, 1);
+        //arrow = new Texture2D(1, 1);
         // Load the PNG file as a byte array
-        byte[] imageBytes = File.ReadAllBytes("Assets/kisspng-computer-icons-automotive-navigation-system-5-arrow-5b28aacfb73147.7266884915293918237504.png");
+        //byte[] imageBytes = File.ReadAllBytes("Assets/kisspng-computer-icons-automotive-navigation-system-5-arrow-5b28aacfb73147.7266884915293918237504.png");
         // Load the byte array into a texture
-        arrow.LoadImage(imageBytes);
+        //arrow.LoadImage(imageBytes);
+
+        /*ANDROID*/
+        // Load the PNG file as a byte array - android
+        arrow = Resources.Load("arrow") as Texture2D;
 
         //Find camera
         arCamera = Camera.main;
@@ -34,7 +37,7 @@ public class CompassBehaviour : MonoBehaviour
         Vector3 bet = transform.position - arCamera.transform.position;
 
         bet.y = 0f; //Ignore vertical component of vector
-        Debug.Log("Marco position: " + transform.position);
+        Debug.Log("Marco position: " + transform.position); //Based on Head of Marco prefab
         Debug.Log("Camera position: " + arCamera.transform.position);
 
         //Find forward vector of camera
@@ -55,16 +58,16 @@ public class CompassBehaviour : MonoBehaviour
     }
 
     //Don't need if script is attached to Marco prefab
-    private void findMarco() {
-        HashSet<GameObject> foundObjects = PhotonNetwork.FindGameObjectsWithComponent(typeof(PhotonView));
-        foreach (GameObject obj in foundObjects) {
-            if (obj.name == "Marco(Clone)") {
-                Marco = obj;
-                Debug.Log("Marco found");
-                break;
-            }
-        }
-    }       
+    // private void findMarco() {
+    //     HashSet<GameObject> foundObjects = PhotonNetwork.FindGameObjectsWithComponent(typeof(PhotonView));
+    //     foreach (GameObject obj in foundObjects) {
+    //         if (obj.name == "Marco(Clone)") {
+    //             Marco = obj;
+    //             Debug.Log("Marco found");
+    //             break;
+    //         }
+    //     }
+    // }       
 
 }
 

@@ -137,8 +137,8 @@ GameObject:
   - component: {fileID: 22732923}
   - component: {fileID: 22732922}
   - component: {fileID: 22732921}
-  - component: {fileID: 22732926}
   - component: {fileID: 22732925}
+  - component: {fileID: 22732926}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -349,18 +349,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &22732926
-MonoBehaviour:
+--- !u!81 &22732926
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22732919}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8454d000ac4345af8aa4b4662144eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Enabled: 1
 --- !u!1 &283686878
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Marco
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303547444848175166, guid: 002cebaf184d24109837ab4a62aef9ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8716961106579772057, guid: 002cebaf184d24109837ab4a62aef9ff,
         type: 3}
@@ -2265,7 +2266,6 @@ GameObject:
   - component: {fileID: 212175866532230322}
   - component: {fileID: 5472436117178709916}
   - component: {fileID: 5434462552450501220}
-  - component: {fileID: 6672308126474732644}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -2273,11 +2273,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &6672308126474732644
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672308126474732643}
-  m_Enabled: 1
