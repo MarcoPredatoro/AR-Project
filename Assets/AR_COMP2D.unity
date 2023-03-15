@@ -506,6 +506,8 @@ GameObject:
   - component: {fileID: 388525033}
   - component: {fileID: 388525035}
   - component: {fileID: 388525036}
+  - component: {fileID: 388525038}
+  - component: {fileID: 388525037}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -533,15 +535,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388525029}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -2, y: 1, z: -2}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 2, y: 1, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 22732924}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!114 &388525032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +614,39 @@ MonoBehaviour:
   floorPrefab: {fileID: 0}
   dismissButton: {fileID: 1519679769}
   arPlaneManager: {fileID: 388525032}
+--- !u!114 &388525037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388525029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4159e7019a3084bda991a26191611898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedImageManager: {fileID: 388525038}
+  RealEgg: {fileID: 6651621332054192716, guid: 2ec055150394e4839b7422495bff9e1b, type: 3}
+  RottenEgg: {fileID: 1954603713775265658, guid: e3c010bef87fe4012acd42b7b36d2bdd,
+    type: 3}
+--- !u!114 &388525038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388525029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedLibrary: {fileID: 11400000, guid: 0e6bb54a6aad24b66ba374d47339b49f,
+    type: 2}
+  m_MaxNumberOfMovingImages: 0
+  m_TrackedImagePrefab: {fileID: 3240611836614721431, guid: 943b97db6b1614e2c950d9cb7ef3cf8d,
+    type: 3}
 --- !u!1 &451613231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,7 +2256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6672308126474732643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 1, z: -2}
+  m_LocalPosition: {x: 2, y: 1, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
