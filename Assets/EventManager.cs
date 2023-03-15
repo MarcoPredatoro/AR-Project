@@ -46,10 +46,10 @@ public class EventManager : MonoBehaviourPun
         }
         else if (photonEvent.Code == MARCO_STAB_EVENT)
         {
+            Handheld.Vibrate();  
             int value = (int)photonEvent.CustomData;
             //int value = (int)data[0];
-            updatePoints(-value);
-            Handheld.Vibrate();            
+            updatePoints(-value);          
         }
         else if (photonEvent.Code == RESET_POINTS_EVENT)
         {

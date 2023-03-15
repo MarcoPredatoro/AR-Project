@@ -15,6 +15,7 @@ public class BeepOnProximity : MonoBehaviour
         arCamera = Camera.main;
         //Find audio source (attached to ARCamera)
         Beep  = arCamera.GetComponent<AudioSource>();
+        Debug.Log("Beep:" + Beep.clip.length);
     }
 
     void Update()
@@ -32,11 +33,11 @@ public class BeepOnProximity : MonoBehaviour
             //First circle: 0.5m
             //Second circle: 1.5m
             //Third circle: 3.0m
-            if (distance <= 0.5f && circle != 1) {
+            if (distance <= 0.25f && circle != 1) {
                 circle = 1;
                 StopCoroutine("StartBuzz");
                 StartCoroutine(StartBuzz(0.25f));
-            } else if (distance <= 1.5f && circle != 2) {
+            } else if (distance <= 1.0f && circle != 2) {
                 circle = 2;
                 StopCoroutine("StartBuzz");
                 StartCoroutine(StartBuzz(1.0f));
@@ -57,7 +58,7 @@ public class BeepOnProximity : MonoBehaviour
         while(true) {
             //Handheld.Vibrate();
             Beep.Play(0); //Play sound effect
-            Debug.Log("Beep");
+            Debug.Log("Duration: " + duration );
             yield return new WaitForSeconds(Beep.clip.length + duration);
         }
     }

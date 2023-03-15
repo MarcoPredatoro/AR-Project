@@ -37,8 +37,8 @@ public class CompassBehaviour : MonoBehaviour
         Vector3 bet = transform.position - arCamera.transform.position;
 
         bet.y = 0f; //Ignore vertical component of vector
-        Debug.Log("Marco position: " + transform.position); //Based on Head of Marco prefab
-        Debug.Log("Camera position: " + arCamera.transform.position);
+        //Debug.Log("Marco position: " + transform.position); //Based on Head of Marco prefab
+        //Debug.Log("Camera position: " + arCamera.transform.position);
 
         //Find forward vector of camera
         Vector3 camForward = arCamera.transform.forward;
@@ -46,7 +46,7 @@ public class CompassBehaviour : MonoBehaviour
 
         //Update angle between camera forward vector and vector from camera to Marco, about y axis
         angle = Vector3.SignedAngle(camForward, bet, Vector3.up); //Returns angle in degrees between -180 and 180
-        Debug.Log("Angle: " + angle);
+        //Debug.Log("Angle: " + angle);
         
        
     }
