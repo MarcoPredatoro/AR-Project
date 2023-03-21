@@ -2,13 +2,24 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 
+//BIG BUG: Infinite powerups spawn when you scan the same image twice
 public class TrackedImageSpawner : MonoBehaviour
 {
     public ARTrackedImageManager trackedImageManager;
     public GameObject RealEgg;
     public GameObject RottenEgg;
+    
     // add more prefabs if needed
+    public GameObject BlindMessage;
+    public GameObject DecoyMessage;
+
+    public Text blindText;
+    public Text decoyText;
+    private int BlindCount = 0;
+    private int DecoyCount = 0;
+
 
     // a dictionary to keep track of which images have been spawned
     private Dictionary<string, GameObject> m_InstantiatedObjects = new Dictionary<string, GameObject>();
@@ -42,7 +53,7 @@ public class TrackedImageSpawner : MonoBehaviour
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
             // destroy the corresponding spawned prefab if needed - doesn't work
-            
+           
         }
     }
 
@@ -57,6 +68,25 @@ public class TrackedImageSpawner : MonoBehaviour
         else if (trackedImage.referenceImage.name == "Rotten")
         {
             prefabToSpawn = RottenEgg;
+        }
+        //Powerup events
+        else if (trackedImage.referenceImage.name == "Blind")
+        {
+            //Have so scan sends blind event immediately
+            prefabToSpawn = BlindMessage;
+            //Add to inventory count
+            BlindCount += 1;
+            blindText.text = BlindCount.ToString();
+
+        }
+        else if (trackedImage.referenceImage.name == "Decoy")
+        {
+            //Have so scan sends decoy event immediately
+            prefabToSpawn = DecoyMessage;
+            //Add to inventory count
+            DecoyCount += 1;
+            decoyText.text = DecoyCount.ToString();
+            
         }
         // add more conditionals to handle more markers
 
