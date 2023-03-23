@@ -84,7 +84,7 @@ public class EventManager : MonoBehaviourPun
             Debug.Log("Sending blinding collision");
             RaiseEventOptions options = RaiseEventOptions.Default;
             options.Receivers = ReceiverGroup.All;
-            PhotonNetwork.RaiseEvent(BLIND_EVENT, 30, options, SendOptions.SendReliable); //What should we put in content?
+            PhotonNetwork.RaiseEvent(BLIND_EVENT, 0, options, SendOptions.SendReliable); //What should we put in content?
 
             //Tell the player that they have used a blinder
             GameObject spawnedObject = Instantiate(BlindMessage);
@@ -106,7 +106,7 @@ public class EventManager : MonoBehaviourPun
             Debug.Log("Sending decoy collision");
             RaiseEventOptions options = RaiseEventOptions.Default;
             options.Receivers = ReceiverGroup.All;
-            PhotonNetwork.RaiseEvent(DECOY_EVENT, 30, options, SendOptions.SendReliable); //What should we put in content?
+            PhotonNetwork.RaiseEvent(DECOY_EVENT, 0, options, SendOptions.SendReliable); //What should we put in content?
 
             //Tell the player that they have used a decoy
             GameObject spawnedObject = Instantiate(DecoyMessage);

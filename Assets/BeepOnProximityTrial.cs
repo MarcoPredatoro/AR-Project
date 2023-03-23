@@ -16,8 +16,8 @@ public class BeepOnProximityTrial : MonoBehaviour
     {
         //Find camera
         polo = Camera.main;
-        //Find audio source (attached to ARCamera)
-        listener = this.GetComponent<AudioListener>();
+        //Find audio listener (attached to ARCamera)
+        listener = polo.GetComponent<AudioListener>();
     }
 
     // Update is called once per frame
@@ -27,38 +27,40 @@ public class BeepOnProximityTrial : MonoBehaviour
 
         if (dis > threatRadius[0] ) {
             // To far away so should play the background sound
-            SetMute(polo, new bool[]{true, true, true});
+            SetMute(new bool[]{true, true, true});
             //background.GetComponent<AudioSource>().mute = false;
             Debug.Log("Background Sound");
         } else {
             //background.GetComponent<AudioSource>().mute = true;
-            makeThreatRadiusSound(polo, dis);
+            makeThreatRadiusSound(dis);
         }
     }
 
-    void makeThreatRadiusSound(Camera polo, float distance) {
+    void makeThreatRadiusSound(float distance) {
         
         if (distance < threatRadius[2]) {
             // Polo in the closest ring
             Debug.Log("polo in the 3 ring");
-            SetMute(polo, new bool[]{true, true, false});
+            SetMute(new bool[]{true, true, false});
         } else if (distance < threatRadius[1]){
             // Polo in the second closest ring
             Debug.Log("polo in the 2 ring");
-            SetMute(polo, new bool[]{true, false, true});
+            SetMute(new bool[]{true, false, true});
 
         } else {
             // Polo in the furthest ring
             Debug.Log("polo in the 1 ring");
-            SetMute(polo, new bool[]{false, true, true});
+            SetMute(new bool[]{false, true, true});
 
         }
     }
 
-    void SetMute(Camera polo, bool[] isMuted) {
+    void SetMute(bool[] isMuted) {
         // Sets whether the child of the polo's audio sources are muted or not based on the bool array
-        for (int i = 0 ; i < isMuted.Length; i++){
-            polo.transform.GetChild(i).GetComponent<AudioSource>().mute = isMuted[i];
+        if (transform.childCount > 0) {
+            for (int i = 0 ; i < isMuted.Length; i++){
+                this.gameObject.transform.GetChild(0).GetChild(i).GetComponent<AudioSource>().mute = isMuted[i];
+            }
         }
     }
 

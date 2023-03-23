@@ -21,6 +21,8 @@ public class NetworkPlayerSpawn : MonoBehaviourPunCallbacks
   {
     base.OnLeftRoom();
     PhotonNetwork.Destroy(spawnedPlayerPrefab);
+    GameObject compass = GameObject.Find("CompassCanvas");
+    Destroy(compass);
     Debug.Log("Player destroyed");
   }
 

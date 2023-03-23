@@ -14,7 +14,7 @@ public class BorderCompass : MonoBehaviour
         arCamera = Camera.main;
 
         // Create a Canvas if it doesn't exist
-        GameObject canvasObj = GameObject.Find("NetworkCanvas");
+        GameObject canvasObj = GameObject.Find("CompassCanvas");
         if (canvasObj == null)
         {
             canvasObj = new GameObject("Canvas");
@@ -24,6 +24,7 @@ public class BorderCompass : MonoBehaviour
         }
 
         Canvas canvas = canvasObj.GetComponent<Canvas>();
+        canvas.sortingOrder = -1;
 
         // Instantiate the arrowPrefab as a child of the Canvas
         arrowInstance = Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity, canvas.transform);
