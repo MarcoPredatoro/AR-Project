@@ -61,9 +61,21 @@ public class TrackedImageSpawner : MonoBehaviour
     {
         GameObject prefabToSpawn = null;
 
+
+
+
+
         if (trackedImage.referenceImage.name == "Real")
         {
             prefabToSpawn = RealEgg;
+
+            //Start timer - need to update timer ui also
+
+
+
+            //When timer is up send event
+            GetComponent<EventManager>().sendEggTimerUp(trackedImage.referenceImage.name);
+
         }
         else if (trackedImage.referenceImage.name == "Rotten")
         {

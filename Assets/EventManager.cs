@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviourPun
     //Powerup events
     private const byte BLIND_EVENT = 4;
     private const byte DECOY_EVENT = 5;
+    private const byte EGG_TIMER_EVENT = 6;
 
     private int points = 0;
     public Text pointsText;
@@ -70,6 +71,14 @@ public class EventManager : MonoBehaviourPun
         pointsText.text = points.ToString();
     }
 
+    public void sendEggTimerUp(string eggCode)
+    {
+        Debug.Log("sent: " + eggCode);
+        RaiseEventOptions options = RaiseEventOptions.Default;
+        options.Receivers = ReceiverGroup.All;
+        PhotonNetwork.RaiseEvent(EGG_TIMER_EVENT, eggCode, options, SendOptions.SendReliable);
+    }
+
     //Powerup events
     public void SendMarcoBlind()
     {
@@ -79,6 +88,14 @@ public class EventManager : MonoBehaviourPun
         } else {
             //Update the number of blind powerups left
             blindText.text = (Int32.Parse(blindText.text) - 1).ToString();
+
+            GameObject compassSquare = GameObject.Find("CompassSquare");
+
+            // Change the color of the compass square to red
+            compassSquare.GetComponent<Image>().color = Color.red;
+            // Start the flickering coroutine for 3 seconds
+            StartCoroutine(Flicker(compassSquare, 3f));
+
 
             //Send the event
             Debug.Log("Sending blinding collision");
@@ -90,7 +107,24 @@ public class EventManager : MonoBehaviourPun
             GameObject spawnedObject = Instantiate(BlindMessage);
             //Destroy after 3 seconds
             Destroy(spawnedObject, 2f);
+
+            // Change the color of the compass square back to white
+            
+            compassSquare.GetComponent<Image>().color = Color.white;
         }   
+    }
+
+    // Coroutine for flickering the compass square
+    private IEnumerator Flicker(GameObject compassSquare, float duration)
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime <= duration)
+        {
+            compassSquare.GetComponent<Image>().enabled = !compassSquare.GetComponent<Image>().enabled;
+            yield return new WaitForSeconds(0.1f); // flicker interval
+        }
+        compassSquare.GetComponent<Image>().enabled = true;
+        compassSquare.GetComponent<Image>().color = Color.white;
     }
 
     public void SendDecoyPolo()
