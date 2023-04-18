@@ -70,23 +70,33 @@ public class TrackedImageSpawner : MonoBehaviour
             prefabToSpawn = RottenEgg;
         }
         //Powerup events
-        else if (trackedImage.referenceImage.name == "Blind")
+        else if (trackedImage.referenceImage.name == "Blind1" || trackedImage.referenceImage.name == "Blind2" || trackedImage.referenceImage.name == "Blind3" )
         {
-            //Have so scan sends blind event immediately
-            prefabToSpawn = BlindMessage;
-            //Add to inventory count
-            BlindCount += 1;
-            blindText.text = BlindCount.ToString();
+            //If trackedImage has not been spawned yet, spawn prefab
+            if (!m_InstantiatedObjects.ContainsKey(trackedImage.referenceImage.name))
+            {
+                m_InstantiatedObjects.Add(trackedImage.referenceImage.name, prefabToSpawn);
+                //Have so scan sends blind event immediately
+                prefabToSpawn = BlindMessage;
+                //Add to inventory count - need to edit this so it only adds once
+                BlindCount += 1;
+                blindText.text = BlindCount.ToString();
+            }
 
         }
-        else if (trackedImage.referenceImage.name == "Decoy")
+        else if (trackedImage.referenceImage.name == "Decoy1 " || trackedImage.referenceImage.name == "Decoy2" || trackedImage.referenceImage.name == "Decoy3")
         {
-            //Have so scan sends decoy event immediately
-            prefabToSpawn = DecoyMessage;
-            //Add to inventory count
-            DecoyCount += 1;
-            decoyText.text = DecoyCount.ToString();
-            
+            //If trackedImage has not been spawned yet, spawn prefab
+            if (!m_InstantiatedObjects.ContainsKey(trackedImage.referenceImage.name))
+            {
+                m_InstantiatedObjects.Add(trackedImage.referenceImage.name, prefabToSpawn);
+                //Have so scan sends decoy event immediately
+                prefabToSpawn = DecoyMessage;
+                //Add to inventory count
+                DecoyCount += 1;
+                decoyText.text = DecoyCount.ToString();
+            }
+                
         }
         // add more conditionals to handle more markers
 

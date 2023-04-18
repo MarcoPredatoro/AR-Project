@@ -17,7 +17,7 @@ public class BorderCompass : MonoBehaviour
         GameObject canvasObj = GameObject.Find("CompassCanvas");
         if (canvasObj == null)
         {
-            canvasObj = new GameObject("Canvas");
+            canvasObj = new GameObject("CompassCanvas");
             canvasObj.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();
