@@ -89,42 +89,17 @@ public class EventManager : MonoBehaviourPun
             //Update the number of blind powerups left
             blindText.text = (Int32.Parse(blindText.text) - 1).ToString();
 
-            GameObject compassSquare = GameObject.Find("CompassSquare");
-
-            // Change the color of the compass square to red
-            compassSquare.GetComponent<Image>().color = Color.red;
-            // Start the flickering coroutine for 3 seconds
-            StartCoroutine(Flicker(compassSquare, 3f));
-
-
             //Send the event
-            Debug.Log("Sending blinding collision");
+            Debug.Log("Sending blind collision");
             RaiseEventOptions options = RaiseEventOptions.Default;
             options.Receivers = ReceiverGroup.All;
             PhotonNetwork.RaiseEvent(BLIND_EVENT, 0, options, SendOptions.SendReliable); //What should we put in content?
 
-            //Tell the player that they have used a blinder
+            //Tell the player that they have used a decoy
             GameObject spawnedObject = Instantiate(BlindMessage);
             //Destroy after 3 seconds
             Destroy(spawnedObject, 2f);
-
-            // Change the color of the compass square back to white
-            
-            compassSquare.GetComponent<Image>().color = Color.white;
-        }   
-    }
-
-    // Coroutine for flickering the compass square
-    private IEnumerator Flicker(GameObject compassSquare, float duration)
-    {
-        float startTime = Time.time;
-        while (Time.time - startTime <= duration)
-        {
-            compassSquare.GetComponent<Image>().enabled = !compassSquare.GetComponent<Image>().enabled;
-            yield return new WaitForSeconds(0.1f); // flicker interval
-        }
-        compassSquare.GetComponent<Image>().enabled = true;
-        compassSquare.GetComponent<Image>().color = Color.white;
+        }  
     }
 
     public void SendDecoyPolo()
@@ -147,5 +122,18 @@ public class EventManager : MonoBehaviourPun
             //Destroy after 3 seconds
             Destroy(spawnedObject, 2f);
         }  
+    }
+
+    // Coroutine for flickering the compass square
+    private IEnumerator Flicker(GameObject compassSquare, float duration)
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime <= duration)
+        {
+            compassSquare.GetComponent<Image>().enabled = !compassSquare.GetComponent<Image>().enabled;
+            yield return new WaitForSeconds(0.1f); // flicker interval
+        }
+        compassSquare.GetComponent<Image>().enabled = true;
+        compassSquare.GetComponent<Image>().color = Color.white;
     }
 }

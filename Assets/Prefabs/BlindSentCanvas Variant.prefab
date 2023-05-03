@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451726115639670371, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420510592935255812, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.69411767
+      objectReference: {fileID: 0}
     - target: {fileID: 2420510592935255812, guid: b607aa5bfe9174fa5be430393b5dcd6a,
         type: 3}
       propertyPath: m_Color.b
@@ -130,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 4094644390517522322, guid: b607aa5bfe9174fa5be430393b5dcd6a,
         type: 3}
       propertyPath: m_Name
-      value: BlindSentCanvas
+      value: BlindSentCanvas Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5571983378852534533, guid: b607aa5bfe9174fa5be430393b5dcd6a,
         type: 3}
@@ -141,6 +151,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: MARCO BLINDED!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.050980397
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 495c9e2a934bcc640a8d7427b13cb680,
+        type: 3}
+    - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149177782566511671, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 435.6164
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149177782566511671, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 113.7261
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149177782566511671, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.2876
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149177782566511671, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 290.1369
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b607aa5bfe9174fa5be430393b5dcd6a, type: 3}
