@@ -20,7 +20,6 @@ In order to build the application to an Android phone:
 3. Use Simulator Unity window to preview UI on your chosen device. Use Scene view to re-adjust sizing if required
 4. Build the project for Android (File > Build Settings > Click add open scenes > Platform: Android > Run device > Build and Run)
 <img src="README_images/buildhelp.jpg" alt="Build Help" width="50%">
-![image](README_images/buildhelp.jpg)
 5. The game should automatically Run on your Android phone when build is finished
 6. Press the red Marco Predatoro logo in the top left to join the network and play the game!
 
