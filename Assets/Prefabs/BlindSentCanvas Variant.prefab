@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlindPowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 8081032965418987737, guid: b607aa5bfe9174fa5be430393b5dcd6a,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8093823360606855395, guid: b607aa5bfe9174fa5be430393b5dcd6a,
         type: 3}
       propertyPath: m_Text
