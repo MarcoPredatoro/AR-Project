@@ -16,8 +16,9 @@ public class EventManager : MonoBehaviourPun
     private const byte BLIND_EVENT = 4;
     private const byte DECOY_EVENT = 5;
     private const byte EGG_TIMER_EVENT = 6;
+    private const byte START_GAME = 8;
 
-    private int points = 0;
+    private int points ;
     public Text pointsText;
     public Text blindText;
     public Text decoyText;
@@ -48,21 +49,25 @@ public class EventManager : MonoBehaviourPun
     {
         if (photonEvent.Code == RFID_POINTS_EVENT)
         {
-            int value = (int)photonEvent.CustomData;
-            //int value = (int)data[0];
-            updatePoints(value);
+            //Removing points count on AR
+            //int value = (int)photonEvent.CustomData;
+            //updatePoints(value);
         }
         else if (photonEvent.Code == MARCO_STAB_EVENT)
         {
             Handheld.Vibrate();  
-            int value = (int)photonEvent.CustomData;
-            //int value = (int)data[0];
-            updatePoints(-value);          
+            //Removing points count on AR
+            //int value = (int)photonEvent.CustomData;
+            //updatePoints(-value);          
         }
-        else if (photonEvent.Code == RESET_POINTS_EVENT)
+        else if (photonEvent.Code == START_GAME)
         {
-            points = 0;
-            pointsText.text = points.ToString();
+            //Reset AR markers
+            GameObject.Find("AR Session Origin").GetComponent<TrackedImageSpawner>().ResetARMarkers();
+            //Reset powerup counts
+            blindText.text = "3";
+            decoyText.text = "3";
+
         }
     }
 
@@ -78,6 +83,17 @@ public class EventManager : MonoBehaviourPun
         options.Receivers = ReceiverGroup.All;
         PhotonNetwork.RaiseEvent(EGG_TIMER_EVENT, eggCode, options, SendOptions.SendReliable);
     }
+
+    //make RESET MARKERS on RFID side!!!!
+    /*
+    public void sendResetMarkers(string eggCode)
+    {
+        Debug.Log("sent: " + eggCode);
+        RaiseEventOptions options = RaiseEventOptions.Default;
+        options.Receivers = ReceiverGroup.All;
+        PhotonNetwork.RaiseEvent(RESET_MARKER_EVENT, eggCode, options, SendOptions.SendReliable);
+    }
+    */
 
     //Powerup events
     public void SendMarcoBlind()
