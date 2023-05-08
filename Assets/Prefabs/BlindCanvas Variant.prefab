@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1493452996041948423, guid: 2ec055150394e4839b7422495bff9e1b,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1499520874006277437, guid: 2ec055150394e4839b7422495bff9e1b,
         type: 3}
       propertyPath: m_Text
@@ -145,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 6651621332054192716, guid: 2ec055150394e4839b7422495bff9e1b,
         type: 3}
       propertyPath: m_Name
-      value: BlindCanvas
+      value: BlindCanvas Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec055150394e4839b7422495bff9e1b, type: 3}
