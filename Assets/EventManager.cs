@@ -65,8 +65,8 @@ public class EventManager : MonoBehaviourPun
             //Reset AR markers
             GameObject.Find("AR Session Origin").GetComponent<TrackedImageSpawner>().ResetARMarkers();
             //Reset powerup counts
-            blindText.text = "3";
-            decoyText.text = "3";
+            blindText.text = "4";
+            decoyText.text = "4";
 
         }
     }
