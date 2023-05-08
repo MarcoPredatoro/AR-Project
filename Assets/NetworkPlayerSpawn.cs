@@ -13,7 +13,7 @@ public class NetworkPlayerSpawn : MonoBehaviourPunCallbacks
   {
     base.OnJoinedRoom();
     //This sets the player's position to the position of the Network object
-    spawnedPlayerPrefab = PhotonNetwork.Instantiate("polo-with-bones", transform.position, transform.rotation);
+    //spawnedPlayerPrefab = PhotonNetwork.Instantiate("Polo1", transform.position, transform.rotation);
     Debug.Log("Player spawned");
   }
 

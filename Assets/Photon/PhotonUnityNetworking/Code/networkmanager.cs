@@ -13,6 +13,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         ConnecttoServer();
+        PhotonNetwork.NickName = "ARPhone";
     }
 
     // Update is called once per frame
@@ -49,6 +50,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom("Room1", roomOptions, TypedLobby.Default);
     }
 
+    public void OnLeaveButtonClicked()
+    {
+        leaveButton.SetActive(false);
+        joinButton.SetActive(true);
+
+        //Leave room
+        Debug.Log("Leave button clicked");
+        PhotonNetwork.LeaveRoom();
+    }
 
     public override void OnJoinedRoom()
     {
@@ -61,16 +71,4 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("New Player entered room");
         base.OnPlayerEnteredRoom(newPlayer);
     }
-
-    public void OnLeaveButtonClicked()
-    {
-        leaveButton.SetActive(false);
-        joinButton.SetActive(true);
-
-        //Leave room
-        Debug.Log("Leave button clicked");
-        PhotonNetwork.LeaveRoom();
-    }
-
-   
 }

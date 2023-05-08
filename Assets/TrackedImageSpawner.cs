@@ -5,7 +5,6 @@ using UnityEngine.XR.ARSubsystems;
 using System.Collections;
 using UnityEngine.UI;
 
-//BIG BUG: Infinite powerups spawn when you scan the same image twice
 public class TrackedImageSpawner : MonoBehaviour
 {
     public ARTrackedImageManager trackedImageManager;
@@ -143,20 +142,19 @@ public class TrackedImageSpawner : MonoBehaviour
         Destroy(timer);
     }
 
-    //Attach to button
-    /*
-    void ResetARMarkers(){
-        for (int i = 0; i < m_InstantiatedObjects.Count; i++)
-        {
+    public void ResetARMarkers(){
+        /* //If I can get RFID script to do this directly that would be better
+        foreach (KeyValuePair<string, GameObject> marker in m_InstantiatedObjects)  {
             //Turn expired eggs back to real
-            if (m_InstantiatedObjects[i].name.Contains("Real"))
+            if (marker.Key.Contains("Real"))
             {
-                events.GetComponent<EventManager>().sendResetMarkers(m_InstantiatedObjects[i].name);
+                events.GetComponent<EventManager>().sendResetMarkers(marker.Key);
             }
         }
+        */
         //Reset dictionary
         m_InstantiatedObjects.Clear();
     }
-    */
+    
 }
 

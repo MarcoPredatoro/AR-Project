@@ -28,16 +28,19 @@ public class ThreatRadius : MonoBehaviour
     {
         //Find polo-with-bones
         if (polo == null) {
+            //SetMute(true);
+            SetMute(true,1.0f);
             polo = GameObject.Find("polo-with-bones(Clone)"); //This is the polo that is spawned in
             Debug.Log("Polo found");
         }
         //If polo is found, then check distance
         if (polo != null) {
             float dis = XZDistance(transform.position, polo.transform.position);
-
+            Debug.Log("Distance: " + dis);
             if (dis > threatRadius) {
                 // To far away so should play the background sound
-                SetMute(true);
+                //SetMute(true);
+                SetMute(true, 1.0f);
                 //background.GetComponent<AudioSource>().mute = false;
                 Debug.Log("Background Sound");
             } else {
@@ -51,7 +54,8 @@ public class ThreatRadius : MonoBehaviour
         
         if (distance < threatRadius) {
             Debug.Log("polo in the ring");
-            SetMute(false); //If polo is in the threat radius, then play the sound
+            //SetMute(false); //If polo is in the threat radius, then play the sound
+            SetMute(false, 2.0f);
         }
         /*
         if (distance < threatRadius[2]) {
@@ -72,12 +76,46 @@ public class ThreatRadius : MonoBehaviour
         */
     }
 
+    /*
     void SetMute(bool isMuted) {
         // Sets whether the child of the polo's audio sources are muted or not based on the bool array
         if (transform.childCount > 0) {
             this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<AudioSource>().mute = isMuted;
         }
     }
+    */
+    IEnumerator FadeOut(AudioSource audioSource, float duration)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        audioSource.mute = true;
+        audioSource.volume = startVolume;
+    }
+
+    void SetMute(bool isMuted, float fadeDuration)
+    {
+        if (transform.childCount > 0)
+        {
+            AudioSource audioSource = this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<AudioSource>();
+
+            if (isMuted)
+            {
+                StartCoroutine(FadeOut(audioSource, fadeDuration));
+            }
+            else
+            {
+                audioSource.mute = false;
+            }
+        }
+    }
+
+
 
     float XZDistance(Vector3 v1, Vector3 v2) {
         return Mathf.Sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.z - v2.z) * (v1.z - v2.z));
