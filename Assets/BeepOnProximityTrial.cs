@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class BeepOnProximityTrial : MonoBehaviour
+
+//Class that is attached to Marco head, and plays sound based on ARCamera's distance to polo
+class BeepOnProximityTrial : MonoBehaviour
 {
 
     private AudioListener listener;
