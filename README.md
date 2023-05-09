@@ -10,8 +10,11 @@ In order to build and run this project, Unity should be installed on your device
 1. Although Unity's ARFoundation should work with *Unity 2020.3 or later*, for optimum compatibility download *Unity 2021.3.10f1* from the Unity Hub.
 2. To build the application for Android phones, add the *Android Build Support* module to your Unity version in the Unity Hub. See [Unity's Documentation](https://docs.unity3d.com/Manual/android-sdksetup.html) for further details.
 3. Download the project by cloning this repository or downloading ZIP. 
-* The required packages should automatically be included, namely ARFoundation and Photon networking. **Do I need to tell them to download these??**
-* Open the project in your Unity version
+The required packages should be installed via Unity's Package Manager:
+* Photon PUN2
+* AR (Unity Feature: includes 6 AR related Unity packages)
+* Oculus XR Integration
+4. Open the project in your Unity version
 
 ### Usage
 In order to build the application to an Android phone:
